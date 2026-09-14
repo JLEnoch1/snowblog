@@ -1,5 +1,5 @@
 # Cloudflare Pages
-name = "atumblog"
+name = "snowblog"
 pages_build_output_dir = "public"
 
 [vars]

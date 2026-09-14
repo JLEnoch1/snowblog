@@ -8,4 +8,4 @@ title: "关于"
 
 ## 联系方式
 
-- GitHub: [a7um](https://github.com/a7um)
+- GitHub: [JLEnoch1](https://github.com/JLEnoch1)

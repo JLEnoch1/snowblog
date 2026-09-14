@@ -68,7 +68,7 @@ url = "/about"
 # Social icons
 [[params.social]]
 name = "github"
-url = "https://github.com/a7um"
+url = "https://github.com/JLEnoch1"
 
 [[params.social]]
 name = "rss"
