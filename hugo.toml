@@ -7,6 +7,7 @@ theme = 'typo'
 [taxonomies]
 tag = 'tags'
 category = 'categories'
+series = 'series'
 
 [params]
 description = "关于安全、AI 与技术的个人博客"
@@ -48,6 +49,10 @@ url = "/"
 [[params.menu]]
 name = "文章"
 url = "/posts"
+
+[[params.menu]]
+name = "系列"
+url = "/series"
 
 [[params.menu]]
 name = "脚本"
