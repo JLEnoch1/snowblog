@@ -1,0 +1,98 @@
+{{ define "main" }}
+
+{{ .Content }}
+
+{{/* Profile Section */}}
+<div class="intro">
+    {{ with .Site.Params.homeIntroTitle }}
+    <h1>{{ . }}</h1>
+    {{ end }}
+
+    {{ with .Site.Params.homeIntroContent }}
+    <p>{{ . | markdownify }}</p>
+    {{ end }}
+</div>
+
+{{/* Social Icons */}}
+{{ with site.Params.social }}
+<div class="social-icons">
+    {{- range . }}
+    <a href="{{ trim .url " " | safeURL }}" target="_blank"
+        rel="noopener noreferrer me"
+        title="{{ (.title | default .name) | title }}">
+        {{ partial "svg.html" . }}
+    </a>
+    {{- end }}
+</div>
+{{ end }}
+
+{{/* Series Section */}}
+{{ $seriesPages := .Site.Taxonomies.series }}
+{{ if $seriesPages }}
+<div class="list-container">
+    <h1>系列</h1>
+    {{ range $name, $taxonomy := $seriesPages }}
+    <div class="post-line">
+        <p class="line-title">
+            <a href="{{ site.BaseURL }}series/{{ $name | urlize }}/">{{ $name }}</a>
+            <span style="color: var(--content-secondary); font-size: small;"> ({{ len $taxonomy.Pages }} 篇)</span>
+        </p>
+    </div>
+    {{ end }}
+</div>
+{{ end }}
+
+{{/* Categories Section */}}
+{{ $categories := .Site.Taxonomies.categories }}
+{{ if $categories }}
+<div class="list-container">
+    <h1>分类</h1>
+    {{ range $name, $taxonomy := $categories }}
+    <div class="post-line">
+        <p class="line-title">
+            <a href="{{ site.BaseURL }}categories/{{ $name | urlize }}/">{{ $name }}</a>
+            <span style="color: var(--content-secondary); font-size: small;"> ({{ len $taxonomy.Pages }} 篇)</span>
+        </p>
+    </div>
+    {{ end }}
+</div>
+{{ end }}
+
+{{/* Tags Cloud */}}
+{{ $tags := .Site.Taxonomies.tags }}
+{{ if $tags }}
+<div class="list-container">
+    <h1>标签</h1>
+    <p>
+        {{ range $name, $taxonomy := $tags }}
+        <a href="{{ site.BaseURL }}tags/{{ $name | urlize }}/" style="margin-right: 0.5em;">{{ $name }}</a>
+        {{ end }}
+    </p>
+</div>
+{{ end }}
+
+{{/* Recent Articles */}}
+{{ if .Site.Params.homeCollection }}
+<div class="list-container">
+    {{ with .Site.Params.homeCollectionTitle}}
+    <h1> {{ . }} </h1>
+    {{ end }}
+
+    {{ $pages := where .Site.RegularPages "Section" .Site.Params.homeCollection }}
+
+    {{ $paginationSize := 1}}
+    {{ if (gt .Site.Params.paginationSize 0) }}
+    {{ $paginationSize = .Site.Params.paginationSize }}
+    {{ end }}
+
+    {{ $paginator := .Paginate $pages $paginationSize }}
+
+    {{ range $index, $page := $paginator.Pages }}
+    {{ partial "post-entry.html" $page}}
+    {{ end }}
+
+    {{ partial "pagination-controls.html" $paginator}}
+</div>
+{{ end }}
+
+{{ end }}
