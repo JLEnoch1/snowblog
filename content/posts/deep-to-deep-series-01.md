@@ -2,7 +2,7 @@
 title: "为什么你明明很努力，却感觉原地踏步？"
 date: 2025-09-14
 tags: ["认知", "思考", "成长"]
-series: ["深渊到深渊"]
+series: ["deep-to-deep"]
 toc: true
 readTime: true
 summary: "问题可能不在努力的量，也不在方法的多少。问题在于——你可能一直在一个看不见的结构里打转。"
