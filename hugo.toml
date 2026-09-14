@@ -1,0 +1,85 @@
+baseURL = 'https://atum.li/'
+locale = 'zh-cn'
+defaultContentLanguage = 'zh-cn'
+title = 'atum'
+theme = 'typo'
+
+[taxonomies]
+tag = 'tags'
+category = 'categories'
+
+[params]
+description = "关于安全、AI 与技术的个人博客"
+theme = 'auto'
+colorPalette = 'parchment'
+hideHeader = false
+
+# Homepage
+homeIntroTitle = 'atum'
+homeIntroContent = """
+安全研究 / AI 工程 / 技术思考
+"""
+homeCollectionTitle = '文章'
+homeCollection = 'posts'
+
+# Lists
+paginationSize = 20
+listSummaries = true
+listDateFormat = '2006-01-02'
+
+# Single page
+singleDateFormat = '2006-01-02'
+
+# Footer
+showFooter = true
+footerContent = "© 2025 atum · Powered by [Hugo](https://gohugo.io) + [Typo](https://github.com/tomfran/typo)"
+
+# Breadcrumbs
+[params.breadcrumbs]
+enabled = true
+showCurrentPage = true
+home = "~"
+
+# Menu
+[[params.menu]]
+name = "首页"
+url = "/"
+
+[[params.menu]]
+name = "文章"
+url = "/posts"
+
+[[params.menu]]
+name = "脚本"
+url = "/scripts"
+
+[[params.menu]]
+name = "思考"
+url = "/thoughts"
+
+[[params.menu]]
+name = "笔记"
+url = "/notes"
+
+[[params.menu]]
+name = "关于"
+url = "/about"
+
+# Social icons
+[[params.social]]
+name = "github"
+url = "https://github.com/a7um"
+
+[[params.social]]
+name = "rss"
+url = "/feed.xml"
+
+# Syntax highlighting
+[markup]
+[markup.highlight]
+noClasses = false
+
+# Privacy
+[privacy]
+[privacy.googleAnalytics]
+disable = true

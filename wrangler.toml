@@ -1,0 +1,8 @@
+# Cloudflare Pages
+name = "atumblog"
+pages_build_output_dir = "public"
+
+[vars]
+HUGO_VERSION = "0.147.0"
+NODE_VERSION = "22"
+HUGO_ENV = "production"

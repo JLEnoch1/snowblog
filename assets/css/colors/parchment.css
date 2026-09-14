@@ -1,0 +1,15 @@
+/* Parchment — warm, aged paper palette */
+
+:root {
+  --content-primary-light: rgb(44, 44, 44);
+  --content-secondary-light: rgb(100, 92, 78);
+  --background-light: rgb(245, 241, 232);
+  --code-background-light: rgb(236, 230, 214);
+  --code-border-light: rgb(216, 206, 188);
+
+  --content-primary-dark: rgb(212, 207, 196);
+  --content-secondary-dark: rgb(150, 142, 128);
+  --background-dark: rgb(30, 28, 23);
+  --code-background-dark: rgb(42, 39, 32);
+  --code-border-dark: rgb(66, 60, 48);
+}

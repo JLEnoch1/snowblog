@@ -1,0 +1,13 @@
+/* Custom overrides — keep minimal, prefer color palette */
+
+:root {
+  --main-width: 720px;
+}
+
+a {
+  color: var(--content-primary);
+}
+
+blockquote {
+  border-left-color: var(--code-border);
+}
