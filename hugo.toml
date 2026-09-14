@@ -1,4 +1,4 @@
-baseURL = 'https://atum.li/'
+baseURL = 'https://jlenoch1.github.io/snowblog/'
 locale = 'zh-cn'
 defaultContentLanguage = 'zh-cn'
 title = 'atum'
