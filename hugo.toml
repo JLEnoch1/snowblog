@@ -18,7 +18,10 @@ hideHeader = false
 # Homepage
 homeIntroTitle = 'snow'
 homeIntroContent = """
-安全研究 / AI 工程 / 技术思考
+安全研究 / AI 工程 / 深度思考
+
+写一些关于认知、技术与世界的观察。
+试图从表象往下挖，看看事物深处的结构是什么样的。
 """
 homeCollectionTitle = '文章'
 homeCollection = 'posts'
