@@ -1,7 +1,7 @@
 baseURL = 'https://jlenoch1.github.io/snowblog/'
 locale = 'zh-cn'
 defaultContentLanguage = 'zh-cn'
-title = 'atum'
+title = 'snow'
 theme = 'typo'
 
 [taxonomies]
@@ -15,7 +15,7 @@ colorPalette = 'parchment'
 hideHeader = false
 
 # Homepage
-homeIntroTitle = 'atum'
+homeIntroTitle = 'snow'
 homeIntroContent = """
 安全研究 / AI 工程 / 技术思考
 """
@@ -32,7 +32,7 @@ singleDateFormat = '2006-01-02'
 
 # Footer
 showFooter = true
-footerContent = "© 2025 atum · Powered by [Hugo](https://gohugo.io) + [Typo](https://github.com/tomfran/typo)"
+footerContent = "© 2025 snow · Powered by [Hugo](https://gohugo.io) + [Typo](https://github.com/tomfran/typo)"
 
 # Breadcrumbs
 [params.breadcrumbs]
