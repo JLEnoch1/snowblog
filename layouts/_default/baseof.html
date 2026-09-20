@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Lang }}">
+<head>{{ partial "head.html" . }}</head>
+<body id="top">
+<a class="skip-link" href="#main">跳至正文</a>
+<header class="site-header">{{ partial "header.html" . }}</header>
+{{ $blog := or .IsHome (in (slice "posts" "thoughts" "notes" "scripts") .Section) (in (slice "taxonomy" "term") .Kind) }}
+<div class="site-layout {{ if $blog }}with-sidebar{{ else }}standalone{{ end }}">
+{{ if $blog }}{{ partial "blog-sidebar.html" . }}{{ end }}
+<main id="main" class="main">{{ block "main" . }}{{ end }}</main>
+</div>
+<footer>{{ partial "footer.html" . }}</footer>
+{{ partial "functions/get_hook.html" (dict "hook" "body_end" "context" .) }}
+{{ if .Param "math" }}{{ partialCached "math.html" . }}{{ end }}
+<script defer src="{{ "js/copy-code.js" | relURL }}"></script>
+<script>
+if (window.matchMedia('(max-width: 850px)').matches) {
+  document.querySelectorAll('.blog-sidebar details, .reading-toc details').forEach(function (item) { item.open = false; });
+}
+</script>
+</body></html>

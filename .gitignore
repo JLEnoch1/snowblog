@@ -21,3 +21,6 @@ Thumbs.db
 
 # Drafts (optional: remove if you want to track drafts)
 # _drafts/
+
+# Local verification snapshots and rollback artifacts
+/.changes/

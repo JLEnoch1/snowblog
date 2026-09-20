@@ -1,0 +1,12 @@
+<aside class="blog-sidebar" aria-label="文章分类">
+<details open><summary>文章导航</summary>
+<a class="sidebar-all" href="{{ site.Home.RelPermalink }}">所有文章</a>
+<h2>系列</h2>
+{{ range site.Taxonomies.series.Alphabetical }}
+<a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }} <small>{{ .Count }}</small></a>
+{{ end }}
+<h2>独立文章</h2>
+<a href="{{ "thoughts/" | relURL }}">思考</a>
+<h2>按标签浏览</h2>
+<div class="tag-list">{{ range site.Taxonomies.tags.Alphabetical }}<a href="{{ .Page.RelPermalink }}">#{{ .Page.LinkTitle }} <small>{{ .Count }}</small></a>{{ end }}</div>
+</details></aside>

@@ -1,0 +1,14 @@
+{{ define "main" }}
+{{ $pages := .Pages }}
+{{ if eq .Section "thoughts" }}
+{{ $pages = slice }}
+{{ range where site.RegularPages "Section" "in" (slice "posts" "thoughts" "notes" "scripts") }}{{ if not .Params.series }}{{ $pages = $pages | append . }}{{ end }}{{ end }}
+{{ end }}
+{{ if $pages }}
+{{ $paginator := .Paginate $pages }}
+{{ range $paginator.Pages }}
+{{ if .IsPage }}{{ partial "article-card.html" . }}{{ else }}<a class="taxonomy-row" href="{{ .RelPermalink }}">{{ .LinkTitle }} <span>{{ len .Pages }} 篇 →</span></a>{{ end }}
+{{ end }}
+{{ partial "pagination-controls.html" $paginator }}
+{{ else }}<p class="empty-state">这里还没有文章。新的独立思考会收录在这里。</p>{{ end }}
+{{ end }}

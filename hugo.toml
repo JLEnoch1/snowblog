@@ -46,32 +46,14 @@ home = "~"
 
 # Menu
 [[params.menu]]
-name = "首页"
+name = "博客"
 url = "/"
-
 [[params.menu]]
-name = "文章"
-url = "/posts"
-
-[[params.menu]]
-name = "系列"
-url = "/series"
-
-[[params.menu]]
-name = "脚本"
-url = "/scripts"
-
-[[params.menu]]
-name = "思考"
-url = "/thoughts"
-
-[[params.menu]]
-name = "笔记"
-url = "/notes"
-
+name = "简介"
+url = "/projects/"
 [[params.menu]]
 name = "关于"
-url = "/about"
+url = "/about/"
 
 # Social icons
 [[params.social]]
@@ -80,7 +62,7 @@ url = "https://github.com/JLEnoch1"
 
 [[params.social]]
 name = "rss"
-url = "/feed.xml"
+url = "/index.xml"
 
 # Syntax highlighting
 [markup]

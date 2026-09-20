@@ -1,0 +1,6 @@
+<article class="article-card">
+<div class="eyebrow">{{ with .GetTerms "series" }}{{ range . }}<a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}{{ else }}思考{{ end }}<span> · {{ .Date.Format "2006.01.02" }}</span></div>
+<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+{{ with .Params.summary }}<p>{{ . }}</p>{{ end }}
+<div class="tag-list">{{ range .GetTerms "tags" }}<a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a>{{ end }}</div>
+</article>

@@ -1,30 +1,9 @@
-{{/* Header — override to fix relURL for GitHub Pages subpath */}}
-
 <div class="header">
-
-    {{ if or (not (.Param "hideHeader")) .IsHome }}
-
-    <h1 class="header-title">
-        <a href="{{ site.BaseURL }}">{{ site.Title }}</a>
-    </h1>
-
-    <div class="header-menu">
-        {{ $currentPage := . }}
-
-        {{ with site.Params.menu }}
-        {{ range . }}
-
-        <p
-            class="small {{ if eq .name (lower $currentPage.Name) }} bold {{end}}">
-            <a href="{{ site.BaseURL }}{{ strings.TrimPrefix "/" .url }}" {{ if and (isset . "newTab") .newTab
-                }}target="_blank" rel="noopener noreferrer" {{ end }}>
-                /{{.name }}
-            </a>
-        </p>
-        {{ end }}
-        {{ end }}
-    </div>
-
-    {{ end }}
-
-</div>
+<a class="brand" href="{{ site.Home.RelPermalink }}">{{ site.Title }}<span> / 观察 · 构建 · 记录</span></a>
+<nav class="top-nav" aria-label="主导航">
+{{ $current := . }}
+{{ range site.Params.menu }}
+{{ $active := or (and (eq .name "简介") (eq $current.RelPermalink ("projects/" | relURL))) (and (eq .name "关于") (eq $current.RelPermalink ("about/" | relURL))) (and (eq .name "博客") (not (in (slice "简介" "关于") $current.Title))) }}
+<a href="{{ strings.TrimPrefix "/" .url | relURL }}" {{ if $active }}aria-current="page"{{ end }}>{{ .name }}</a>
+{{ end }}
+</nav></div>

@@ -1,72 +1,31 @@
-# atumblog
+# snowblog
 
-个人博客 — Hugo + Typo 主题 + 羊皮纸配色。
+Hugo + Typo 个人博客，保留羊皮纸配色。
 
-## 首次设置
+## 预览与构建
 
-### 1. 安装 Hugo
-
-```bash
-# macOS
-brew install hugo
-
-# 或通过 Hugo 官方安装
-# https://gohugo.io/installation/
+```sh
+hugo server -D
+hugo --minify
 ```
 
-### 2. 本地预览
+GitHub Pages：推送 main 后由 .github/workflows/deploy.yml构建并部署；站点 baseURL 为 https://jlenoch1.github.io/snowblog/。本次本地修改不自动发布。
 
-```bash
-hugo server -D --buildDrafts
-# 打开 http://localhost:1313
+## 信息架构
+
+- 顶部：博客 / 简介 / 关于。
+- 博客左栏：系列 / 思考（无 series 的独立文章）/ 标签。
+- 内容保留原 URL；posts、thoughts、notes、scripts 中的文章统一参与博客聚合。
+- 桌面文章目录在右侧，移动端折叠区位于正文前。
+- 简介：content/projects.md，维护项目链接、问题、方法、预期结果。
+- 关于：content/about.md，维护自我介绍、研究兴趣与 Links。
+- 文章 front matter 填写 tags，系列文章再填写 series。
+
+历史事实与决策见 docs/DECISIONS.md。GitHub Pages 中发布的内容是公开静态文件；历史 README 所述 Cloudflare Access 不代表本站已启用。
+
+## 验证
+
+```sh
+hugo --destination /tmp/snowblog-check
+python3 scripts/verify_site.py /tmp/snowblog-check modified
 ```
-
-### 3. Obsidian 集成
-
-```bash
-bash scripts/obsidian-setup.sh
-# 然后在 Obsidian 中打开此目录作为 Vault
-```
-
-### 4. 部署
-
-```bash
-# 一键发布
-bash scripts/publish.sh
-```
-
-#### Cloudflare Pages 首次配置
-
-1. 在 Cloudflare Dashboard 创建 Pages 项目
-2. 在 GitHub 仓库 Settings → Secrets 添加：
-   - `CLOUDFLARE_API_TOKEN` — Cloudflare API Token（Pages 编辑权限）
-   - `CLOUDFLARE_ACCOUNT_ID` — Cloudflare Account ID
-3. Push 到 main 分支，GitHub Actions 自动部署
-
-#### Cloudflare Access（私密内容保护）
-
-1. 在 Cloudflare Zero Trust Dashboard → Access → Applications
-2. 添加规则：
-   - 路径: `/thoughts/*` → 仅允许你的邮箱
-   - 路径: `/notes/*` → 仅允许你的邮箱
-3. 认证方式推荐: Email OTP（免密码）
-
-## 内容结构
-
-```
-content/
-├── posts/          公开博客文章
-├── scripts/        视频脚本底稿
-├── thoughts/       私密思考（Access 保护）
-├── notes/          私密笔记（Access 保护）
-└── about.md        关于页面
-
-_drafts/            草稿区（不构建）
-_templates/         Obsidian 模板
-```
-
-## 写新文章
-
-1. Obsidian 中用模板创建 → 保存到 `_drafts/`
-2. 写完后移到 `content/posts/` 或对应目录
-3. `bash scripts/publish.sh` 发布

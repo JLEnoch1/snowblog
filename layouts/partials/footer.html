@@ -1,0 +1,5 @@
+{{ if ne site.Params.showFooter false }}
+{{ partial "functions/get_hook.html" (dict "hook" "footer_start" "context" .) }}
+<p class="journal-signature"><span class="journal-mark">SNOW / JOURNAL</span><span>越过表象，记录对人、技术与世界的观察。</span></p>
+{{ with site.Params.footerContent }}<p>{{ . | markdownify }}</p>{{ end }}
+{{ end }}
