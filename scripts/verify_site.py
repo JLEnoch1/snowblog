@@ -39,7 +39,7 @@ for f in root.rglob('*.html'):
 assert 'reading-toc' in article and 'class="toc"' not in article
 assert all('#'+t in article for t in ['认知','思考','成长'])
 assert '项目整理中' in (root/'projects/index.html').read_text()
-assert '这里还没有文章' in (root/'thoughts/index.html').read_text() if mode=='modified' else True
+assert 'macOS 微信密钥自动获取失败排障指南' in (root/'thoughts/index.html').read_text() if mode=='modified' else True
 assert all(t in (root/'about/index.html').read_text() for t in ['社会现象','个体成长','个体行为','AI 实践','客户端安全','Links'])
 if mode=='fixture':
     thoughts=(root/'thoughts/index.html').read_text()
